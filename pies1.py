@@ -12,10 +12,8 @@ files = glob.glob('harth/*.csv')
 
 
 # Φορτώστε τα δεδομένα σας
-ctr = 0
 dataframes = [pd.read_csv(file) for file in files]
 for df in dataframes:
-    ctr+=1
     df['timestamp'] = pd.to_datetime(df['timestamp']).apply(lambda x: x.timestamp())
 all_df = pd.concat(dataframes)
 
@@ -53,7 +51,7 @@ for individual_data in dataframes:
         minutes = seconds/60
         labels.append(Activities[act])
         sizes.append(minutes)
-    axs.flat[ctr%6].title.set_text('{}'.format(ctr))
+    axs.flat[ctr%6].title.set_text('{}'.format(ctr+1))
     axs.flat[ctr%6].pie(sizes)
     ctr+=1
     all_sizes = all_sizes + np.array(sizes)
