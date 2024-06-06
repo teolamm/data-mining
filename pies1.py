@@ -58,7 +58,7 @@ for individual_data in dataframes:
     ctr+=1
     all_sizes = all_sizes + np.array(sizes)
 
-
+plt.figure()
 plt.pie(all_sizes)
 plt.legend(labels, bbox_to_anchor =(-0.3,-0.1), loc = 'lower left', prop = {'size' : 8})
 plt.show()
